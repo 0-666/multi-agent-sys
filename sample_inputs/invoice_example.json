@@ -1,0 +1,12 @@
+{
+  "invoice_id": "INV-2023-001",
+  "customer_name": "Acme Corp",
+  "total_amount": 1500.75,
+  "issue_date": "2023-10-26",
+  "due_date": "2023-11-25",
+  "items": [
+    { "name": "Product A", "quantity": 2, "unit_price": 500.00 },
+    { "name": "Service B", "quantity": 1, "unit_price": 500.75 }
+  ],
+  "contact_email": "billing@acme.com"
+}

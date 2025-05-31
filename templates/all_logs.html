@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-
+    <title>All Processing Logs</title>
+    <style>
+        /* Add similar styling as results.html or index.html */
+        body { font-family: sans-serif; margin: 20px; }
+        pre { background-color: #eee; padding: 10px; border-radius: 4px; margin-bottom:10px; white-space: pre-wrap; word-wrap: break-word;}
+        a { color: #007bff; text-decoration: none; }
+        a:hover { text-decoration: underline; }
+    </style>
+</head>
+<body>
+    <p><a href="{{ url_for('index') }}">« Back to Upload</a></p>
+    <h1>All Processing Logs</h1>
+    {% for log_entry in logs %}
+        <pre>{{ log_entry | tojson(indent=2) }}</pre>
+    {% else %}
+        <p>No logs found.</p>
+    {% endfor %}
+</body>
+</html>

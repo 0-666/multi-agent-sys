@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Multi-Agent Document Processor</title>
+    <style>
+        body { font-family: sans-serif; margin: 20px; background-color: #f4f4f4; }
+        .container { background-color: #fff; padding: 20px; border-radius: 8px; box-shadow: 0 0 10px rgba(0,0,0,0.1); }
+        h1, h2 { color: #333; }
+        label { display: block; margin-top: 10px; }
+        input[type="file"], textarea, input[type="submit"] {
+            width: calc(100% - 22px); padding: 10px; margin-top: 5px; border-radius: 4px; border: 1px solid #ddd;
+        }
+        input[type="submit"] { background-color: #5cb85c; color: white; cursor: pointer; }
+        input[type="submit"]:hover { background-color: #4cae4c; }
+        .error { color: red; margin-top: 10px; }
+        .logs-preview { margin-top: 20px; border-top: 1px solid #eee; padding-top: 10px;}
+        .logs-preview pre { background-color: #eee; padding: 10px; border-radius: 4px; max-height: 200px; overflow-y: auto; }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Multi-Agent Document Processor</h1>
+
+        {% if error_message %}
+            <p class="error">{{ error_message }}</p>
+        {% endif %}
+
+        <form method="POST" enctype="multipart/form-data">
+            <h2>Upload File</h2>
+            <input type="hidden" name="inputType" value="file">
+            <label for="inputFile">Select a PDF, JSON, or Text/EML file:</label>
+            <input type="file" name="inputFile" id="inputFile">
+            <input type="submit" value="Process File">
+        </form>
+
+        <hr style="margin: 20px 0;">
+
+        <form method="POST">
+            <h2>Or Paste Raw Text (e.g., Email Body)</h2>
+            <input type="hidden" name="inputType" value="text">
+            <label for="inputText">Paste text content here:</label>
+            <textarea name="inputText" id="inputText" rows="10"></textarea>
+            <input type="submit" value="Process Text">
+        </form>
+
+        <div class="logs-preview">
+            <h2>Recent Activity</h2>
+            <p><a href="{{ url_for('view_all_logs') }}">View All Logs</a></p>
+            {% if recent_logs %}
+                {% for log in recent_logs %}
+                    <pre>Timestamp: {{ log.timestamp }} | Agent: {{ log.agent_name }} | Thread: {{ log.thread_id }} | Source: {{ log.source_filename }} | Status: {{ log.status }}</pre>
+                {% endfor %}
+            {% else %}
+                <p>No recent activity.</p>
+            {% endif %}
+        </div>
+    </div>
+</body>
+</html>

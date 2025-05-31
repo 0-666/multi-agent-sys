@@ -1,0 +1,19 @@
+From: "Sales Team <sales@example.com>"
+To: "customer@example.org"
+Subject: Your Order #XYZ789 has been confirmed!
+Content-Type: text/plain; charset="utf-8"
+
+Dear Customer,
+
+Thank you for your order!
+Your order #XYZ789 has been confirmed and will be shipped soon.
+Items:
+- 1x Super Widget
+- 2x Thingamajig
+
+Total: $99.99
+
+We appreciate your business.
+
+Thanks,
+The Sales Team

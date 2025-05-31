@@ -1,0 +1,18 @@
+# Python
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+*.env
+.env
+env/
+venv/
+ENV/
+# SQLite Database
+shared_memory.db
+shared_memory.db-journal # SQLite temporary file
+
+#upload files
+uploads_temp/
+
+
