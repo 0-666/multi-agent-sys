@@ -29,4 +29,3 @@ This system uses multiple AI agents to classify and process documents from PDF, 
 *   PyPDF2 (for PDF text extraction)
 *   Standard Python libraries (`json`, `email`)
 
-## Folder Structure
